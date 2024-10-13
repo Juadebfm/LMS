@@ -4,6 +4,8 @@ import { useAppContext } from "../context/AppContext";
 import { IoChevronDownSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import Logo from "/GraduationCap.png";
+import { CiSearch } from "react-icons/ci";
+import Button from "./Button";
 
 const Navbar = () => {
   const location = useLocation();
@@ -80,7 +82,7 @@ const Navbar = () => {
       </section>
 
       {/* Bottom Nav */}
-      <section className="h-[96px]">
+      <section className="h-[96px] px-14 border-b border-[#E9EAF0] flex items-center justify-between">
         {/* Right */}
         <div className="h-full flex">
           <div className="flex items-center gap-8">
@@ -90,18 +92,34 @@ const Navbar = () => {
                 Learn
               </span>
             </div>
-            <div className="flex items-center">
-              <div className="relative w-[200px] h-[52px] border border-[#E9EAF0] flex">
+            <div className="flex items-center gap-8">
+              <div className="relative w-[200px] h-[52px] border border-[#E9EAF0] flex text-[#4E5566]">
                 <select className="appearance-none bg-transparent px-2 py-2 pr-8  rounded">
                   <option value="Browse Category">Browse</option>
                 </select>
                 <IoChevronDownSharp className="absolute right-2 top-1/2 transform -translate-y-1/2" />
               </div>
+
+              <div className="h-[52px] border border-[#E9EAF0] flex items-center justify-center">
+                <CiSearch size={25} className="ml-8" />
+
+                <input
+                  type="search"
+                  placeholder="What do you want learn..."
+                  className="px-2 py-2 pl-8 w-[424px] "
+                />
+              </div>
             </div>
           </div>
         </div>
         {/* Left */}
-        <div></div>
+        <div className="flex items-center justify-center gap-6">
+          <Button
+            btnText="Create Account"
+            btnClass="w-auto bg-primary_orange/30 text-primary_orange font-bold"
+          />
+          <Button btnText="Sign In" btnClass="w-auto" />
+        </div>
       </section>
     </nav>
   );
